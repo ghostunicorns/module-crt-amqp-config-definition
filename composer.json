@@ -3,7 +3,8 @@
     "description": "GhostUnicorns Crt Amqp Config module",
     "type": "magento2-module",
     "require": {
-        "magento/framework": "*"
+        "magento/framework": "*",
+        "ghostunicorns/module-crt-base": "^1.0"
     },
     "authors": [
         {
