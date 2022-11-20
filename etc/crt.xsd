@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:redefine schemaLocation="urn:magento:module:GhostUnicorns_CrtConfigDefinition:etc/crt.xsd">
+        <xs:complexType name="typeDeclaration">
+            <xs:complexContent>
+                <xs:extension base="typeDeclaration">
+                    <xs:attribute name="amqp" type="xs:boolean" default="false"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+
+        <xs:complexType name="crtType" abstract="true" mixed="true">
+            <xs:complexContent>
+                <xs:extension base="crtType">
+                    <xs:sequence>
+                        <xs:element name="dependencies" type="dependenciesDeclaration" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+
+    </xs:redefine>
+
+    <xs:complexType name="dependenciesDeclaration">
+        <xs:sequence>
+            <xs:element name="dependency" type="dependencyDeclaration" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dependencyDeclaration">
+        <xs:complexContent>
+            <xs:extension base="dependencyEnrty"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="dependencyEnrty">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+</xs:schema>
